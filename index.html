@@ -96,7 +96,7 @@
             <div class="progress-bar" style="width: calc(100/12*1%)"></div>
         </div>
         <h2 id="title" class="text-center mt-5" style="color: white;">문제</h2>
-        <p id="content" class="text-center" style="color: white;">안녕하세요안녕하세요아아아아아</p>
+        <p id="content" class="text-center" style="color: white;"></p>
         <input id="type" type="hidden" value="EI">
         <button id="A" class="button btn-primary mt-5">Primary</button>
         <button id="B" class="button btn-primary mt-5">Primary</button>
@@ -117,13 +117,13 @@
         // 서버에서 ooo.com/report/:id
         
         var q = {
-            1: {"title": "문제 1번", "contnet":$("#content").html('adsfadfa<br>dasdfsadf'), "type": "EI", "A": "어쩌고저쩌고 솰라솰라라", "B": "어쩌구저껒ㅇ런ㅁ로ㅓ"},
-            2: {"title": "문제 2번", "contnet":$("#content").html('add<br>da'), "type": "EI", "A": "어쩌고저쩌고 솰라솰라라", "B": "어쩌구저껒ㅇ런ㅁ로ㅓ"},
-            3: {"title": "문제 3번", "contnet":$("#content").html('adsfadfa<br>dasdfsadf'), "type": "EI", "A": "어쩌고저쩌고 솰라솰라라", "B": "어쩌구저껒ㅇ런ㅁ로ㅓ"},
-            4: {"title": "문제 4번", "contnet":$("#content").html('adsfadfa<br>dasdfsadf'), "type": "EI", "A": "어쩌고저쩌고 솰라솰라라", "B": "어쩌구저껒ㅇ런ㅁ로ㅓ"},
-            5: {"title": "문제 5번", "contnet":$("#content").html('adsfadfa<br>dasdfsadf'), "type": "EI", "A": "어쩌고저쩌고 솰라솰라라", "B": "어쩌구저껒ㅇ런ㅁ로ㅓ"},
-            6: {"title": "문제 2번", "contnet":"안녕하세요안녕하세요아아아아아", "type": "EI", "A": "어쩌고저쩌고 솰라솰라라", "B": "어쩌구저껒ㅇ런ㅁ로ㅓ"},
-            7: {"title": "문제 2번", "contnet":"안녕하세요안녕하세요아아아아아", "type": "EI", "A": "어쩌고저쩌고 솰라솰라라", "B": "어쩌구저껒ㅇ런ㅁ로ㅓ"},
+            1: {"title": "문제 1번", "content":'adsfadfa<br>dasdfsadf', "type": "EI", "A": "어쩌고저쩌고 솰라솰라라", "B": "어쩌구저껒ㅇ런ㅁ로ㅓ"},
+            2: {"title": "문제 2번", "content":'add<br>da', "type": "EI", "A": "어쩌고저쩌고 솰라솰라라", "B": "어쩌구저껒ㅇ런ㅁ로ㅓ"},
+            3: {"title": "문제 3번", "content":'adsfadfa<br>dasdfsadf', "type": "EI", "A": "dfdfdf 솰라솰라라", "B": "어쩌구저껒ㅇ런ㅁ로ㅓ"},
+            4: {"title": "문제 4번", "content":'adsfadfa<br>dasdfsadf<br>sfdfdfsfsfs', "type": "EI", "A": "어쩌고저쩌고 솰라솰라라", "B": "어쩌구저껒ㅇ런ㅁ로ㅓ"},
+            5: {"title": "문제 5번", "content":'adsfadfa<br>dasdfsadf', "type": "EI", "A": "어쩌고저쩌고 솰라솰라라", "B": "어쩌구저껒ㅇ런ㅁ로ㅓ"},
+            6: {"title": "문제 2번", "content":"안녕하세요안녕하세요아아아아아", "type": "EI", "A": "어쩌고저쩌고 솰라솰라라", "B": "어쩌구저껒ㅇ런ㅁ로ㅓ"},
+            7: {"title": "문제 2번", "content":"안녕하세요안녕하세요아아아아아", "type": "EI", "A": "어쩌고저쩌고 솰라솰라라", "B": "어쩌구저껒ㅇ런ㅁ로ㅓ"},
             8: {"title": "문제 2번", "type": "EI", "A": "어쩌고저쩌고 솰라솰라라", "B": "어쩌구저껒ㅇ런ㅁ로ㅓ"},
             9: {"title": "문제 2번", "type": "EI", "A": "어쩌고저쩌고 솰라솰라라", "B": "어쩌구저껒ㅇ런ㅁ로ㅓ"},
             10: {"title": "문제 2번", "type": "EI", "A": "어쩌고저쩌고 솰라솰라라", "B": "어쩌구저껒ㅇ런ㅁ로ㅓ"},
@@ -147,6 +147,7 @@
         function next() {
             $(".progress-bar").attr('style','width: calc(100 / 12*' +num+'%');
             $("#title").html(q[num]["title"]);
+            $("#content").html(q[num]["content"]);
             $("#type").html(q[num]["type"]);
             $("#A").html(q[num]["A"]);
             $("#B").html(q[num]["B"]);

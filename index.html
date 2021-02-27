@@ -48,7 +48,7 @@
             font-style: normal;
         }
         body{
-            background-image: url('img/background.png');
+            background-image: url('images/background.png');
         }
         .hover {
             cursor: pointer
@@ -63,10 +63,18 @@
             border-radius: 0;
             background-color: #a52a2a00;
             color: #ffffff;
-            box-shadow:  0px 0px 15px #d09adb inset, 0px 0px 15px #d09adb;
-    
-            }
-        #um{
+            box-shadow:  0px 0px 8px #d09adb inset, 0px 0px 8px #d09adb;
+        }
+        .ansbutton{
+            width: 90%;
+            height: 100px;
+            border: 3px solid #d09adb;
+            border-radius: 0;
+            background-color: #a52a2a00;
+            color: #ffffff;
+            box-shadow:  0px 0px 8px #d09adb inset, 0px 0px 8px #d09adb;
+        }
+        #umm{
             max-width: 360px;
             height: 500px;
             margin-top: 70px;
@@ -77,6 +85,19 @@
         .result{
             display: none;
         }
+        .question{
+            max-width: 360px;
+        }
+        #hmm{
+            max-width: 360px;
+            margin-top: 20%;
+        }
+        .prog{
+            background-color: #ffffff;
+        }
+        .progs{
+            background: #d09adb;
+        }
     </style>
 </head>
 <body>
@@ -84,23 +105,31 @@
         <header class="container text-center" style="height: 70px; line-height: 70px; letter-spacing: 2.5px;">
             <span style="color: white; font-weight: bold; font-family: NEXON Lv1 Gothic OTF;">M</span><span style="color: #ce85e4;">C</span><span style="color:white;">TI</span>
         </header>
-        <div  id="um" class="container text-center">
-            <img src="img/cocktail.png" style="width: 250px;">
+        <div  id="umm" class="container text-center">
+            <img src="images/cocktail.png" style="width: 250px;">
             <p class="mt-1 mb-0 text-center" style="font-family: GyeonggiBatang; font-size: 32px; color: #dfd2df;">내 성향으로 확인하는</p>
             <p class="text-center" style="font-family: GyeonggiBatang; font-size: 32px; color: #dfd2df; margin-top: -10px;"><span style="font-family: GyeonggiBatang; font-size: 32px;  color: #ca69e7;">칵테일 </span>취향 찾기 !</p>
             <button type="button" class="button mt-4" onclick='start();' style="font-family:NEXON Lv1 Gothic OTF; letter-spacing: 2.5px;" >시작하기</button>
         </div>
     </ariticle>
-    <article class="question">
-        <div class="progress mt-5">
-            <div class="progress-bar" style="width: calc(100/12*1%)"></div>
+    <article class="question container">
+        <div class="prog mt-5 text-center" style="max-width: 200px; margin: 0 auto; height: 2px;">
+            <div class="progs" style="width: calc(100/12*1%)"></div>
         </div>
-        <h2 id="title" class="text-center mt-5" style="color: white;">문제</h2>
-        <p id="content" class="text-center" style="color: white;"></p>
-        <input id="type" type="hidden" value="EI">
-        <button id="A" class="button btn-primary mt-5">Primary</button>
-        <button id="B" class="button btn-primary mt-5">Primary</button>
+        <!-- <div class="progress mt-5 text-center" style="max-width: 200px; margin: 0 auto; height: 2px;">
+            <div class="progress-bar" style="width: calc(100/12*1%)"></div>
+        </div> -->
+        <div id="hmm" class="container text-center" style="margin-top: 8em;">
+            <h2 id="title" class="text-center mt-5 mb-2" style="color: white; font-family: GyeonggiBatang; font-size: 35px;">문제</h2>
+            <p id="content" class="text-center mt-3 mb-5" style="color: white; font-family: GyeonggiBatang; font-size: 23px;"></p>
+            <input id="type" type="hidden" value="EI">
+            <button id="A" class="ansbutton btn-primary mt-5" style="font-size: 13px;">Primary</button>
+            <button id="B" class="ansbutton btn-primary mt-2" style="font-size: 13px;">Primary</button>
+        </div>
     </article>
+     <!--Q와 질문 사이 간격 더 두기.--> 
+     <!--선택지 폰트 바꾸기 좀 더 얇고 고딕스러운걸로?-->
+     <!--Q 폰트 키우고 질문 폰트 키우기.-->  
     <article class="result">
 
     </article>
@@ -112,40 +141,46 @@
     <script>
         var num = 1;
         
-        var data = [1, 2, 1, 2, 2, 2]
+        var data=[];
+
+        //ar data = [1, 2, 1, 2, 2, 2]
         // 이런식으로 데이터를 구성해서 서버측에 보내주고
         // 서버에서 ooo.com/report/:id
         
         var q = {
-            1: {"title": "문제 1번", "content":'adsfadfa<br>dasdfsadf', "type": "EI", "A": "어쩌고저쩌고 솰라솰라라", "B": "어쩌구저껒ㅇ런ㅁ로ㅓ"},
-            2: {"title": "문제 2번", "content":'add<br>da', "type": "EI", "A": "어쩌고저쩌고 솰라솰라라", "B": "어쩌구저껒ㅇ런ㅁ로ㅓ"},
-            3: {"title": "문제 3번", "content":'adsfadfa<br>dasdfsadf', "type": "EI", "A": "dfdfdf 솰라솰라라", "B": "어쩌구저껒ㅇ런ㅁ로ㅓ"},
-            4: {"title": "문제 4번", "content":'adsfadfa<br>dasdfsadf<br>sfdfdfsfsfs', "type": "EI", "A": "어쩌고저쩌고 솰라솰라라", "B": "어쩌구저껒ㅇ런ㅁ로ㅓ"},
-            5: {"title": "문제 5번", "content":'adsfadfa<br>dasdfsadf', "type": "EI", "A": "어쩌고저쩌고 솰라솰라라", "B": "어쩌구저껒ㅇ런ㅁ로ㅓ"},
-            6: {"title": "문제 2번", "content":"안녕하세요안녕하세요아아아아아", "type": "EI", "A": "어쩌고저쩌고 솰라솰라라", "B": "어쩌구저껒ㅇ런ㅁ로ㅓ"},
-            7: {"title": "문제 2번", "content":"안녕하세요안녕하세요아아아아아", "type": "EI", "A": "어쩌고저쩌고 솰라솰라라", "B": "어쩌구저껒ㅇ런ㅁ로ㅓ"},
-            8: {"title": "문제 2번", "type": "EI", "A": "어쩌고저쩌고 솰라솰라라", "B": "어쩌구저껒ㅇ런ㅁ로ㅓ"},
-            9: {"title": "문제 2번", "type": "EI", "A": "어쩌고저쩌고 솰라솰라라", "B": "어쩌구저껒ㅇ런ㅁ로ㅓ"},
-            10: {"title": "문제 2번", "type": "EI", "A": "어쩌고저쩌고 솰라솰라라", "B": "어쩌구저껒ㅇ런ㅁ로ㅓ"},
-            11: {"title": "문제 2번", "type": "EI", "A": "어쩌고저쩌고 솰라솰라라", "B": "어쩌구저껒ㅇ런ㅁ로ㅓ"},
-            12: {"title": "문제 2번", "type": "EI", "A": "어쩌고저쩌고 솰라솰라라", "B": "어쩌구저껒ㅇ런ㅁ로ㅓ"},
+            1: {"title": "Q1.", "content":'친구들과 칵테일바에 놀러갔다.<br>이 때, 내가 앉는 자리는', "type": "EI", "A": "중앙부에 위치한 푹신한 소파", "B": "조용한 창가의 바테이블"},
+            2: {"title": "Q2.", "content":'속상한 일이 있어 친구에게<br>털어 놓을 때, 나는', "type": "TF", "A": "부드러운 칵테일과 함께 <br>그 날 있었던 일들을 조목조목 이야기한다.", "B": "오늘일은 잊어버려 ! <br>도수 높은 칵테일을 마시고 진탕 취한다."},
+            3: {"title": "Q3.", "content":'칵테일을 주문할 때, 나는', "type": "SN", "A": "시그니쳐 메뉴가 뭐에요?<br>그걸로 주세요.", "B": "처음 본 이름의 메뉴를 선택한다."},
+            4: {"title": "Q4.", "content":'내 최애 칵테일에 대해<br>설명할 때, 나는', "type": "SN", "A": "\"넘나 맛있는 것 !\" 단순하게 설명한다.", "B": "\"그 칵테일은 말이야,, 상큼한 맛이 나면서<br>톡톡 쏘고 ,,\"구체적으로 설명한다."},
+            5: {"title": "Q5.", "content":'새로운 칵테일바를<br>가기로 했을 때, 나는', "type": "JP", "A": "블로그와 후기를<br>꼼꼼하게 비교하여 결정한다.", "B": "길을 가다가<br>분위기가 좋아보이는 곳에 들어간다."},
+            6: {"title": "Q6.", "content":"같은 날에 여러명과 단 둘이<br>만나는 약속이 생겼을 때, 나는", "type": "EI", "A": "여럿이서 놀아야 재밌지 !<br>여럿이서 만난다.", "B": "시끄러운 건 싫어 ! 둘이서 만난다."},
+            7: {"title": "Q7.", "content":"친구에게 고민을<br>털어놓을 때, 나는", "type": "TF", "A": "현실적인 조언과<br>해결방안을 제시해주는게 좋다.", "B": "\"ㅠㅠ 많이 힘들었겠다 ..\"<br>공감해주는게 좋다."},
+            8: {"title": "Q8.", "content":"친구가 우리집에 놀러와서<br>물건을 찾을 때, 나는", "type": "JP", "A": "\"그거 왼쪽 서랍 세 번째 칸에 있어\"<br>정확히 알고 있다.", "B": "\"음 .. 책상 쪽 한번 잘 봐봐\"<br>대충 느낌으로 안다."},
+            9: {"title": "Q9.", "content":"친구들과 약속을 끝낸 후 집에 가는 길,<br>버스 안에서 나는", "type": "TF", "A": "집에 돌아가서 해야할 일을 생각한다.", "B": "오늘 있었던 일을 생각하며<br>피식 웃는다."},
+            10: {"title": "Q10.", "content":"회의해야 할 일이 생겼는데<br>서로 다른 곳에 있는 상황일 때, 나는", "type": "EI", "A": "역시 회의는 얼굴보고 해야지.<br>화상회의를 켜서 진행한다.", "B": "텍스트로도 전달할 수 있는데 굳이?<br>전체톡방에서 회의한다."},
+            11: {"title": "Q11.", "content":"일주일 뒤에 여행을 가기로 했다.<br>짐을 챙길 때, 나는", "type": "JP", "A": "챙겨야 할 짐의 체크리스트를 만들어<br>확인하며 챙긴다.", "B": "여행 전날, <br>급하게 생각나는대로 챙긴다."},
+            12: {"title": "Q12.", "content":"친구에게 현재 칵테일바의<br>위치를 설명할 때, 나는", "type": "SN", "A": "\"어느 건물에서 어느 방향으로 몇미터 ...\"<br>상세하게 알려준다.", "B": "주위에 있는 큰 건물들을<br>위주로 알려준다."},
         }
+
         function start() {
             $("#start").hide();
             $(".question").show();
             next();
         }
+
         $("#A").click(function(){
             var type = $("#type").val();
             var preValue = $("#"+type).val();
             $("#"+type).val(parseInt(preValue)+1);
+            data.push(1);
             next();
         });
         $("#B").click(function(){
+            data.push(2);
             next();
         });
         function next() {
-            $(".progress-bar").attr('style','width: calc(100 / 12*' +num+'%');
+            $(".progs").attr('style','width: calc(100 / 12*' +num+'%');
             $("#title").html(q[num]["title"]);
             $("#content").html(q[num]["content"]);
             $("#type").html(q[num]["type"]);

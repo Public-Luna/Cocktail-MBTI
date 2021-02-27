@@ -96,7 +96,7 @@
             background-color: #ffffff;
         }
         .progs{
-            background: #d09adb;
+            background-color: #d09adb;
         }
     </style>
 </head>
@@ -117,7 +117,7 @@
             <div class="progs" style="width: calc(100/12*1%)"></div>
         </div>
         <!-- <div class="progress mt-5 text-center" style="max-width: 200px; margin: 0 auto; height: 2px;">
-            <div class="progress-bar" style="width: calc(100/12*1%)"></div>
+            <div class="progress-bar" style="width: calc(100/12*1%)"></div> 
         </div> -->
         <div id="hmm" class="container text-center" style="margin-top: 8em;">
             <h2 id="title" class="text-center mt-5 mb-2" style="color: white; font-family: GyeonggiBatang; font-size: 35px;">문제</h2>
@@ -180,7 +180,7 @@
             next();
         });
         function next() {
-            $(".progs").attr('style','width: calc(100 / 12*' +num+'%');
+            $(".progs").width('calc(100 / 12*' + num+'%');
             $("#title").html(q[num]["title"]);
             $("#content").html(q[num]["content"]);
             $("#type").html(q[num]["type"]);
@@ -188,6 +188,12 @@
             $("#B").html(q[num]["B"]);
             num++;
         }
+        //$(".progs").width('calc(100 / 12*' + num+'%');
+        //$(".progs").css({'width': 'calc(100 / 12*' + num+'%'});
+        //$(".progs").attr('style','width: calc(100 / 12*' +num+'%');
+        //안 된 방법들
+        //$(".progress-bar").attr('style','width: calc(100 / 12*' +num+'%');
+        //부트스트랩 progress bar 사용해서 했을 때는 됨
     </script>
 </body>
 </html>

@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>example</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+    <style>
+        @font-face {
+            font-family: 'Grandpa_sharing';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/naverfont_05@1.0/Grandpa_sharing.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
+        @font-face {
+            font-family: 'MapoMaponaru';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/MapoMaponaruA.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: 'GyeonggiBatang';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/GyeonggiBatang.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: 'Chosunilbo_myungjo';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/Chosunilbo_myungjo.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: 'NEXON Lv1 Gothic OTF';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.1/NEXON Lv1 Gothic OTF.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
+        @font-face {
+            font-family: 'GmarketSansMedium';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
+        body{
+            background-image: url('images/background.png');
+        }
+        .hover {
+            cursor: pointer
+        }
+        .hover:hover {
+            background-color: #EEE
+        }
+        .button{
+            width: 80%;
+            height: 50px;
+            border: 3px solid #d09adb;
+            border-radius: 0;
+            background-color: #a52a2a00;
+            color: #ffffff;
+            box-shadow:  0px 0px 8px #d09adb inset, 0px 0px 8px #d09adb;
+        }
+        .ansbutton{
+            width: 90%;
+            height: 100px;
+            border: 3px solid #d09adb;
+            border-radius: 0;
+            background-color: #a52a2a00;
+            color: #ffffff;
+            box-shadow:  0px 0px 8px #d09adb inset, 0px 0px 8px #d09adb;
+        }
+        #umm{
+            max-width: 360px;
+            height: 500px;
+            margin-top: 70px;
+        }
+
+
+        .question{
+            max-width: 360px;
+        }
+        #hmm{
+            max-width: 360px;
+            margin-top: 20%;
+        }
+        .prog{
+            background-color: #ffffff;
+        }
+        .progs{
+            background-color: #d09adb;
+        }
+    </style>
+</head>
+<body>
+    <ariticle id="start">
+        <header class="container text-center" style="height: 70px; line-height: 70px; letter-spacing: 2.5px;">
+            <span style="color: white; font-weight: bold; font-family: NEXON Lv1 Gothic OTF;">M</span><span style="color: #ce85e4;">C</span><span style="color:white;">TI</span>
+        </header>
+
+    </ariticle>
+    <article class="question container">
+        <div class="prog mt-5 text-center" style="max-width: 200px; margin: 0 auto; height: 2px;">
+            <div class="progs" style="width: calc(100/12*1%)"></div>
+        </div>
+
+
+        <div id="hmm" class="container text-center" style="margin-top: 8em;">
+            <h2 id="title" class="text-center mt-5 mb-2" style="color: white; font-family: GyeonggiBatang; font-size: 35px;">Q1.</h2>
+            <p id="content" class="text-center mt-3 mb-5" style="color: white; font-family: GyeonggiBatang; font-size: 23px;">친구들과 칵테일바에 놀러갔다.<br>이 때, 내가 앉는 자리는</p>
+            <button id="A" class="ansbutton btn-primary mt-5" style="font-size: 13px;">중앙부에 위치한 푹신한 소파</button>
+            <button id="B" class="ansbutton btn-primary mt-2" style="font-size: 13px;">조용한 창가의 바테이블</button>
+        </div>
+    </article>
+
+    <script>
+        var num = 1;
+      
+        var postData=[];
+
+        //ar data = [1, 2, 1, 2, 2, 2]
+        // 이런식으로 데이터를 구성해서 서버측에 보내주고
+        // 서버에서 ooo.com/report/:id
+        
+        var q = {
+            1: {"title": "Q2.", "content":'속상한 일이 있어 친구에게<br>털어 놓을 때, 나는',  "A": "부드러운 칵테일과 함께 <br>그 날 있었던 일들을 조목조목 이야기한다.", "B": "오늘일은 잊어버려 ! <br>도수 높은 칵테일을 마시고 진탕 취한다."},
+            2: {"title": "Q3.", "content":'칵테일을 주문할 때, 나는', "A": "시그니쳐 메뉴가 뭐에요?<br>그걸로 주세요.", "B": "처음 본 이름의 메뉴를 선택한다."},
+            3: {"title": "Q4.", "content":'내 최애 칵테일에 대해<br>설명할 때, 나는', "A": "\"넘나 맛있는 것 !\" 단순하게 설명한다.", "B": "\"그 칵테일은 말이야,, 상큼한 맛이 나면서<br>톡톡 쏘고 ,,\"구체적으로 설명한다."},
+            4: {"title": "Q5.", "content":'새로운 칵테일바를<br>가기로 했을 때, 나는',  "A": "블로그와 후기를<br>꼼꼼하게 비교하여 결정한다.", "B": "길을 가다가<br>분위기가 좋아보이는 곳에 들어간다."},
+            5: {"title": "Q6.", "content":"같은 날에 여러명과 단 둘이<br>만나는 약속이 생겼을 때, 나는", "A": "여럿이서 놀아야 재밌지 !<br>여럿이서 만난다.", "B": "시끄러운 건 싫어 ! 둘이서 만난다."},
+            6: {"title": "Q7.", "content":"친구에게 고민을<br>털어놓을 때, 나는",  "A": "현실적인 조언과<br>해결방안을 제시해주는게 좋다.", "B": "\"ㅠㅠ 많이 힘들었겠다 ..\"<br>공감해주는게 좋다."},
+            7: {"title": "Q8.", "content":"친구가 우리집에 놀러와서<br>물건을 찾을 때, 나는",  "A": "\"그거 왼쪽 서랍 세 번째 칸에 있어\"<br>정확히 알고 있다.", "B": "\"음 .. 책상 쪽 한번 잘 봐봐\"<br>대충 느낌으로 안다."},
+            8: {"title": "Q9.", "content":"친구들과 약속을 끝낸 후 집에 가는 길,<br>버스 안에서 나는",  "A": "집에 돌아가서 해야할 일을 생각한다.", "B": "오늘 있었던 일을 생각하며<br>피식 웃는다."},
+            9: {"title": "Q10.", "content":"회의해야 할 일이 생겼는데<br>서로 다른 곳에 있는 상황일 때, 나는", "A": "역시 회의는 얼굴보고 해야지.<br>화상회의를 켜서 진행한다.", "B": "텍스트로도 전달할 수 있는데 굳이?<br>전체톡방에서 회의한다."},
+            10: {"title": "Q11.", "content":"일주일 뒤에 여행을 가기로 했다.<br>짐을 챙길 때, 나는",  "A": "챙겨야 할 짐의 체크리스트를 만들어<br>확인하며 챙긴다.", "B": "여행 전날, <br>급하게 생각나는대로 챙긴다."},
+            11: {"title": "Q12.", "content":"친구에게 현재 칵테일바의<br>위치를 설명할 때, 나는",  "A": "\"어느 건물에서 어느 방향으로 몇미터 ...\"<br>상세하게 알려준다.", "B": "주위에 있는 큰 건물들을<br>위주로 알려준다."},
+           
+        }
+
+
+        $("#A").click(function(){
+          
+            postData.push(1);
+            next();
+            console.log(postData);
+       
+        });
+        $("#B").click(function(){
+            postData.push(2);
+            next();
+            console.log(postData);
+        });
+        function next() {
+        
+                $(".progs").width('calc(100 / 12*' + num+'%');
+                $("#title").html(q[num]["title"]);
+                $("#content").html(q[num]["content"]);
+                $("#type").html(q[num]["type"]);
+                $("#A").html(q[num]["A"]);
+                $("#B").html(q[num]["B"]);
+               
+    
+            num++;
+        }
+     
+    </script>
+</body>
+</html>

@@ -3,15 +3,15 @@ const fs = require('fs')
 const ejs = require('ejs');
 const router = express.Router();
 const mysql      = require('mysql');
-const db_config  = require('../config/db-config.json');
+// const db_config  = require('../config/db-config.json');
 const { query } = require('express');
 
-var connection = mysql.createConnection({
-  host     : db_config.host,
-  user     : db_config.user,
-  password : db_config.password,
-  database : db_config.database
-});
+// var connection = mysql.createConnection({
+//   host     : db_config.host,
+//   user     : db_config.user,
+//   password : db_config.password,
+//   database : db_config.database
+// });
 /* GET home page. */
 
 router.get('/', function (req, res, next) {

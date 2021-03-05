@@ -67,7 +67,7 @@
             font-style: normal;
         }
         body{
-            background-image: url('../public/images/background.png');
+            background-image: url('/images/background.png');
             background-size: 150%;
         }
         #rep{
@@ -86,20 +86,15 @@
     <body>
         <h2 id="title" class="text-center" style="color: white; font-family: GyeonggiBatang; font-size: 18px; margin-top: 60px;">당신에게 어울리는 칵테일은</h2>
         <div  id="rep" class="container text-center mb-5" style="margin-top: -50px;">
-            <img src="../public/images/KahluaMilk.png" style="width: 290px;">
-            <p class="text-center" style="color: #9199D6; font-family: GyeonggiBatang; font-size: 20px;" id="title">어디에나 잘 섞이는</p>
-            <p class="text-center" style="color: white; font-family: GyeonggiBatang; font-size: 27px; margin-top: -19px;">깔루아밀크</p>
-            
+            <img src="/images/<%= cocktail_img %>" style="width: 290px;">
+            <p class="text-center" style="color: #9199D6; font-family: GyeonggiBatang; font-size: 20px;" id="title"><%= title %></p>
+            <p class="text-center" style="color: white; font-family: GyeonggiBatang; font-size: 27px; margin-top: -19px;"><%= cocktail %></p>
         </div>
         <div class = "container mb-5" id="rep">
             <ul style="color: white; font-family: GyeonggiBatang; font-size: 14px; padding-right: 20px; letter-spacing: 0.8px;">
-                <li>깔루아밀크처럼 부드러운 당신, 어디에서나 잘 적응하는군요.</li>
-                <li>머릿속으로 계획은 열심히 세우지만 실천은 하지 않아요. 하지만 한 번 시작을 한 일에는 끝을 보는 타입이죠.</li>
-                <li>강요나 압박으로 통제하려고 하는걸 정말 싫어해요. 자유로운게 최고에요 !</li>
-                <li>남들은 본인에게 착하다고하지만 정작 본인은 그렇게 생각하지않아요. 사실 착하다고하면 부담스러워요 ㅠㅠ</li>
-                <li>갈등상황을 싫어하는 타입이라 대부분 상대방의 의견에 따르는 편이에요.</li>
-                <li>누가 나에게 부탁하는건 잘 들어주지만 남한테 민폐끼치는것을 싫어해 상대방에게 부탁하는 것은 어려워해요.</li>
-                <li>관심 받는거 싫은데 좋고, 좋은데 싫어요. 조용한 관종이랄까 ?</li>
+                <% content.forEach(function(e){ %>
+                    <li><%= e %></li>
+                <% }) %>
             </ul>
         </div>
     </body>

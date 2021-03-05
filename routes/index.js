@@ -1,83 +1,127 @@
 const express = require('express');
-const fs = require('fs')
-const ejs = require('ejs');
 const router = express.Router();
-const mysql      = require('mysql');
-const db_config  = require('../config/db-config.json');
-const { query } = require('express');
+const mysql = require('mysql');
 
-var connection = mysql.createConnection({
-  host     : db_config.host,
-  user     : db_config.user,
-  password : db_config.password,
-  database : db_config.database
-});
+// const db_config  = require('../config/db-config.json');
+// var connection = mysql.createConnection({
+//   host     : db_config.host,
+//   user     : db_config.user,
+//   password : db_config.password,
+//   database : db_config.database
+// });
 
-/* GET home page. */
+const report = {
+  1: {
+    title : '어디에나 잘 섞이는',
+    cocktail : '깔루아밀크',
+    cocktail_img : 'KahluaMilk.png',
+    content: [
+      '깔루아밀크처럼 부드러운 당신, 어디에서나 잘 적응하는군요.',
+      '머릿속으로 계획은 열심히 세우지만 실천은 하지 않아요. 하지만 한 번 시작을 한 일에는 끝을 보는 타입이죠.',
+      '강요나 압박으로 통제하려고 하는걸 정말 싫어해요. 자유로운게 최고에요 !',
+      '남들은 본인에게 착하다고하지만 정작 본인은 그렇게 생각하지않아요. 사실 착하다고하면 부담스러워요 ㅠㅠ',
+      '갈등상황을 싫어하는 타입이라 대부분 상대방의 의견에 따르는 편이에요.',
+      '누가 나에게 부탁하는건 잘 들어주지만 남한테 민폐끼치는것을 싫어해 상대방에게 부탁하는 것은 어려워해요.',
+      '관심 받는거 싫은데 좋고, 좋은데 싫어요. 조용한 관종이랄까 ?',
+    ]
+  },
+  2: {
+    title : '어디에나 잘 섞이는',
+    cocktail : '깔루아밀크',
+    cocktail_img : 'KahluaMilk.png',
+    content: [
+      '깔루아밀크처럼 부드러운 당신, 어디에서나 잘 적응하는군요.',
+      '머릿속으로 계획은 열심히 세우지만 실천은 하지 않아요. 하지만 한 번 시작을 한 일에는 끝을 보는 타입이죠.',
+      '강요나 압박으로 통제하려고 하는걸 정말 싫어해요. 자유로운게 최고에요 !',
+      '남들은 본인에게 착하다고하지만 정작 본인은 그렇게 생각하지않아요. 사실 착하다고하면 부담스러워요 ㅠㅠ',
+      '갈등상황을 싫어하는 타입이라 대부분 상대방의 의견에 따르는 편이에요.',
+      '누가 나에게 부탁하는건 잘 들어주지만 남한테 민폐끼치는것을 싫어해 상대방에게 부탁하는 것은 어려워해요.',
+      '관심 받는거 싫은데 좋고, 좋은데 싫어요. 조용한 관종이랄까 ?',
+    ]
+  },
+  3: {
+    title : '어디에나 잘 섞이는',
+    cocktail : '깔루아밀크',
+    cocktail_img : 'KahluaMilk.png',
+    content: [
+      '깔루아밀크처럼 부드러운 당신, 어디에서나 잘 적응하는군요.',
+      '머릿속으로 계획은 열심히 세우지만 실천은 하지 않아요. 하지만 한 번 시작을 한 일에는 끝을 보는 타입이죠.',
+      '강요나 압박으로 통제하려고 하는걸 정말 싫어해요. 자유로운게 최고에요 !',
+      '남들은 본인에게 착하다고하지만 정작 본인은 그렇게 생각하지않아요. 사실 착하다고하면 부담스러워요 ㅠㅠ',
+      '갈등상황을 싫어하는 타입이라 대부분 상대방의 의견에 따르는 편이에요.',
+      '누가 나에게 부탁하는건 잘 들어주지만 남한테 민폐끼치는것을 싫어해 상대방에게 부탁하는 것은 어려워해요.',
+      '관심 받는거 싫은데 좋고, 좋은데 싫어요. 조용한 관종이랄까 ?',
+    ]
+  },
+  4: {
+    title : '어디에나 잘 섞이는',
+    cocktail : '깔루아밀크',
+    content: [
+      '깔루아밀크처럼 부드러운 당신, 어디에서나 잘 적응하는군요.',
+      '머릿속으로 계획은 열심히 세우지만 실천은 하지 않아요. 하지만 한 번 시작을 한 일에는 끝을 보는 타입이죠.',
+      '강요나 압박으로 통제하려고 하는걸 정말 싫어해요. 자유로운게 최고에요 !',
+      '남들은 본인에게 착하다고하지만 정작 본인은 그렇게 생각하지않아요. 사실 착하다고하면 부담스러워요 ㅠㅠ',
+      '갈등상황을 싫어하는 타입이라 대부분 상대방의 의견에 따르는 편이에요.',
+      '누가 나에게 부탁하는건 잘 들어주지만 남한테 민폐끼치는것을 싫어해 상대방에게 부탁하는 것은 어려워해요.',
+      '관심 받는거 싫은데 좋고, 좋은데 싫어요. 조용한 관종이랄까 ?',
+    ]
+  },
+  5: {
+    title : '어디에나 잘 섞이는',
+    cocktail : '깔루아밀크',
+    cocktail_img : 'KahluaMilk.png',
+    content: [
+      '깔루아밀크처럼 부드러운 당신, 어디에서나 잘 적응하는군요.',
+      '머릿속으로 계획은 열심히 세우지만 실천은 하지 않아요. 하지만 한 번 시작을 한 일에는 끝을 보는 타입이죠.',
+      '강요나 압박으로 통제하려고 하는걸 정말 싫어해요. 자유로운게 최고에요 !',
+      '남들은 본인에게 착하다고하지만 정작 본인은 그렇게 생각하지않아요. 사실 착하다고하면 부담스러워요 ㅠㅠ',
+      '갈등상황을 싫어하는 타입이라 대부분 상대방의 의견에 따르는 편이에요.',
+      '누가 나에게 부탁하는건 잘 들어주지만 남한테 민폐끼치는것을 싫어해 상대방에게 부탁하는 것은 어려워해요.',
+      '관심 받는거 싫은데 좋고, 좋은데 싫어요. 조용한 관종이랄까 ?',
+    ]
+  },
+  6: {
+    title : '어디에나 잘 섞이는',
+    cocktail : '깔루아밀크',
+    cocktail_img : 'KahluaMilk.png',
+    content: [
+      '깔루아밀크처럼 부드러운 당신, 어디에서나 잘 적응하는군요.',
+      '머릿속으로 계획은 열심히 세우지만 실천은 하지 않아요. 하지만 한 번 시작을 한 일에는 끝을 보는 타입이죠.',
+      '강요나 압박으로 통제하려고 하는걸 정말 싫어해요. 자유로운게 최고에요 !',
+      '남들은 본인에게 착하다고하지만 정작 본인은 그렇게 생각하지않아요. 사실 착하다고하면 부담스러워요 ㅠㅠ',
+      '갈등상황을 싫어하는 타입이라 대부분 상대방의 의견에 따르는 편이에요.',
+      '누가 나에게 부탁하는건 잘 들어주지만 남한테 민폐끼치는것을 싫어해 상대방에게 부탁하는 것은 어려워해요.',
+      '관심 받는거 싫은데 좋고, 좋은데 싫어요. 조용한 관종이랄까 ?',
+    ]
+  }
+}
 
+// root
 router.get('/', function (req, res, next) {
-  fs.readFile('./views/index.html', 'utf8', function (err, data) {
-    res.send(data)
-  })
+  res.rander('index')
 })
+
+// form
 router.get('/form', function (req, res, next) {
-  fs.readFile('./views/form.html', 'utf8', function (err, data) {
-    res.send(data)
-  })
-})
-router.post('/', function (req, res, next) {
-  const body = req.body
-  connection.query('insert into MusicList (q1, q2, genre) values (?, ?, ?);', [
-    body.name,
-    body.artist,
-    body.genre
-  ], function() {
-    console.log("222222")
-    res.redirect('/report/1')
-  })
-  fs.readFile('./views/index.html', 'utf8', function (err, data) {
-    res.send(data)
-  })
-})
-router.get('/report:id', function (req, res, next) {
- //select q1,q2 from table where sum(table.q1+table.q2+table.q3)>=2 0 1 1 i:0 E:1  
-   fs.readFile('./views/report.html', 'utf8', function (err, data) {
-    res.send(data)
-  })
-  redirect('/report/2')
-})
-router.get('/list', function(req, res, next) {
-  fs.readFile('./views/list.ejs', 'utf8', function (err, data) {
-    connection.query('select * from MusicList', function (err, results) {
-      if (err) {
-        res.send(err)
-      } else {
-        res.send(ejs.render(data, {
-          data: results
-        
-        }))
-        console.log(results)
-
-      }
-    })
-  })
-})
-router.get('/dbTest', function(req, res, next) { 
-    connection.query('select sum(q1+q2+q3),sum(q4+q5+q6),sum(q7+q8+q9),sum(q10+q11+q12) from result where id=1', function (err, results) {
-      if (err) {
-        res.send(err)
-      } else {
-        //console.log(results);
-        console.log(results[0]['sum(q1+q2+q3)'])
-        console.log(results[0]['sum(q4+q5+q6)'])
-        console.log(results[0]['sum(q7+q8+q9)'])
-        console.log(results[0]['sum(q10+q11+q12)'])
-      
-   
-      }
-    })
-
+  res.rander('form')
 })
 
+// report/:id
+router.get('/report/:id', function (req, res, next) {
+  const id = req.params.id;
+  let data = {}
+
+  for (let k in report) {
+    if (k == id) {
+      data = report[k]
+    }
+  }
+  if (data != {}){
+    res.render('report', data);
+  }else {
+    // 404 해주셈
+    res.redirect('/404')
+  }
+})
 
 module.exports = router;

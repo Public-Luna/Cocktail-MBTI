@@ -164,12 +164,58 @@
                 $("#content").html(q[num]["content"]);
                 $("#A").html(q[num]["A"]);
                 $("#B").html(q[num]["B"]);
-            }else {
+            }else{
+                num++;
                 postData.push(ans);
                 console.log('fin')
                 console.log(postData)
+               
+            
+                
+                var inputPostData={
+                    "q1" :postData[0],
+                    "q2" :postData[1],
+                    "q3" :postData[2],
+                    "q4" :postData[3],
+                    "q5" :postData[4],
+                    "q6" :postData[5],
+                    "q7" :postData[6],
+                    "q8" :postData[7],
+                    "q9" :postData[8],
+                    "q10" :postData[9],
+                    "q11" :postData[10],
+                    "q12" :postData[11]
+
+                }
+              //  console.log(JSON.stringify(inputPostData));
+                console.log(11111111111111)
+                $.ajax({
+                    type : "post",                               
+                    url : "/form",                          
+                    dataType : 'json',                           
+                    ContentType : 'application/json',            
+                    data : JSON.stringify(inputPostData),  
+                    timeout:3000,               
+                    success : successCall                      
+                    //error:errorCall
+
+                    
+                });
+              
+                console.log(222222222222222222)
+
+                function successCall(){
+                    console.log(JSON.stringify(inputPostData));
+                    alert("전송성공");
+                }
+
+                function errorCall(e){
+                    console.log(e); // 실패 시 처리
+                    alert("전송실패");
+                }
             }
         }
+        
      
     </script>
 </body>

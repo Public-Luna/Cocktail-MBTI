@@ -126,16 +126,17 @@ const report = {
 
 // root
 router.get('/', function (req, res, next) {
-  res.rander('index')
+  res.render('index')
 })
 
 // form
 router.get('/form', function (req, res, next) {
-  res.rander('form')
+  res.render('form')
 })
 router.post('/form',function(req,res,next){
   const body = req.body
-  connection.query('insert into result (q1, q2,q3,q4,q5,q6,q7,q8,q9,q10,q11,q12)values(?,?,?,?,?,?,?,?,?,?,?,?);', [
+  const sql='insert into result (q1, q2,q3,q4,q5,q6,q7,q8,q9,q10,q11,q12)values(?,?,?,?,?,?,?,?,?,?,?,?);'
+  connection.query(sql, [
     body.q1,
     body.q2,
     body.q3,
@@ -149,12 +150,13 @@ router.post('/form',function(req,res,next){
     body.q11,
     body.q12
   ], function() {
+    
     //body.q1 ,body.q2 이걸 여기서 이용하면 될거 같음
     //E:0 I:1 1, 6, 10
     //S:0 N:1 3, 4, 12
     //T:0 F:1 2, 7, 9
     //J:0 P:1 5, 8, 11
-
+    
     //ISTP(백과사전형), INTP(아이디어뱅크형) /report/1
     //ISFP(성인군자형), INFP(잔다르크형) /report/3
     //ISTJ(세상의 소금형), INTJ(과학자형) /report/5
@@ -164,7 +166,8 @@ router.post('/form',function(req,res,next){
     //ESFJ(친선도모형),ENFJ(언변능숙형) /report/2
     //ENFP(스파크형), ENTP(발명가형) /report/4
     //ESTP(수완좋은 활동가형),ESFP(사교적인유형) /report/6
-    
+   
+      
     if(body.q1+body.q6+body.q10>1){//E
       if(body.q3+body.q4+body.q12>1){//S
         if(body.q2+body.q7+body.q9>1){//T

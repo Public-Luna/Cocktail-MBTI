@@ -1,16 +1,7 @@
 const express = require('express');
 const router = express.Router();
-const mysql = require('mysql');
 const report_map = require('../report_map');
 const question_map = require('../question_map');
-
-// const db_config  = require('../config/db-config.json');
-// var connection = mysql.createConnection({
-// host     : db_config.host,
-// user     : db_config.user,
-// password : db_config.password,
-// database : db_config.database
-// });
 
 // root
 router.get('/', function (req, res, next) {
@@ -23,14 +14,6 @@ router.get('/form', function (req, res, next) {
 })
 router.post('/form',function(req,res,next){
   const { form } = req.body
-  //ISTP(백과사전형), INTP(아이디어뱅크형) /report/1
-  //ESFJ(친선도모형),ENFJ(언변능숙형) /report/2
-  //ISFP(성인군자형), INFP(잔다르크형) /report/3
-  //ENFP(스파크형), ENTP(발명가형) /report/4
-  //ISTJ(세상의 소금형), INTJ(과학자형) /report/5
-  //ESTP(수완좋은 활동가형),ESFP(사교적인유형) /report/6
-  //ISFJ(임금 뒷편의 권력형),INFJ(예언자형) /report/7
-  //ENTJ(지도자형), ESTJ(사업가형) /report/8
   let r = {
     'ISTP': 1, 'INTP': 1,
     'ESFJ': 2, 'ENFJ': 2,
@@ -68,13 +51,16 @@ router.get('/report/:id', function (req, res, next) {
       data = report_map[k]
     }
   }
-  console.log(data)
   if (data != {}){
     res.render('report', data);
   }else {
     // 404 해주셈
     res.redirect('/404')
   }
+})
+//error
+router.get('/404', function (req, res, next) {
+  res.render('404')
 })
 
 module.exports = router;

@@ -57,9 +57,8 @@ Dash cam using Cloud solutions and deep learning-based recording systems
 - <ppp389606@gmail.com> 
 
 
-**Na YoungChae **
+**Na YoungChae (PM)**
 - [**@lunaB**](https://github.com/lunaB)   
 - <luna20617@gmail.com> 
-   
 
 * * *

@@ -95,32 +95,12 @@
                 <% content.forEach(function(e){ %>
                     <li><%= e %></li>
                 <% }) %>
-                <button type="button" >Get Page URL</button>
+                <button type="button" >결과 공유하기</button>
+                <button type="button" onclick="location.href='/';">검사하러 가기</button>
             </ul>
             
         </div>
         
     </body>
-    <script>
-        
-        const shareData = {
-        title: 'Cocktail-MBTI',
-        text: '당신의 MBTI는?',
-        url: window.location.href,
-        }
-
-        const btn = document.querySelector('button');
-        const resultPara = document.querySelector('.result');
-
-        // Must be triggered some kind of "user activation"
-        btn.addEventListener('click', async () => {
-        try {
-            await navigator.share(shareData)
-            resultPara.textContent = 'Cocktail-MBTI shared successfully'
-        } catch(err) {
-            resultPara.textContent = 'Error: ' + err
-        }
-        });
- 
-    </script>
+    <script src="/javascripts/shareUrl.js"></script>
 </head>

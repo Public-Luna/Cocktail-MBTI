@@ -57,6 +57,7 @@ router.get('/report/:id', function (req, res, next) {
     // 404 해주셈
     res.redirect('/404')
   }
+  
 })
 //error
 router.get('/404', function (req, res, next) {

@@ -1,8 +1,87 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+@font-face {
+  font-family: 'Grandpa_sharing';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/naverfont_05@1.0/Grandpa_sharing.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
 }
-
-a {
-  color: #00B7FF;
+@font-face {
+  font-family: 'MapoMaponaru';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/MapoMaponaruA.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'GyeonggiBatang';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/GyeonggiBatang.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Chosunilbo_myungjo';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/Chosunilbo_myungjo.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'NEXON Lv1 Gothic OTF';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.1/NEXON Lv1 Gothic OTF.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'GmarketSansMedium';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+body {
+  background-image: url('/images/background.png');
+}
+.hover {
+  cursor: pointer
+}
+.hover:hover {
+  background-color: #EEE
+}
+.start_btn {
+  width: 80%;
+  height: 50px;
+  border: 3px solid #d09adb;
+  border-radius: 0;
+  background-color: #a52a2a00;
+  color: #ffffff;
+  box-shadow:  0px 0px 8px #d09adb inset, 0px 0px 8px #d09adb;
+  font-family:NEXON Lv1 Gothic OTF; 
+  letter-spacing: 2.5px;
+}
+.ansbutton {
+  width: 90%;
+  height: 100px;
+  border: 3px solid #d09adb;
+  border-radius: 0;
+  background-color: #a52a2a00;
+  color: #ffffff;
+  box-shadow:  0px 0px 8px #d09adb inset, 0px 0px 8px #d09adb;
+}
+#umm {
+  max-width: 360px;
+  height: 500px;
+  margin-top: 70px;
+}
+.question {
+  display: none;
+  max-width: 360px;
+}
+.result {
+  display: none;
+}
+#hmm {
+  max-width: 360px;
+  margin-top: 20%;
+}
+.prog {
+  background-color: #ffffff;
+}
+.progs {
+  background-color: #d09adb;
 }

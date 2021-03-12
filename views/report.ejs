@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>result</title>
+    <title>cocktail-mbti</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <link rel="stylesheet" type="text/css" href="https://cdn.rawgit.com/moonspam/NanumSquare/master/nanumsquare.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
@@ -82,6 +82,17 @@
         #title{
             margin-top: -50px;
         }
+        .btn{
+            width: 80%;
+            height: 50px;
+            border: 3px solid #d09adb;
+            border-radius: 0;
+            background-color: #a52a2a00;
+            color: #ffffff;
+            box-shadow:  0px 0px 8px #d09adb inset, 0px 0px 8px #d09adb;
+            font-family:NEXON Lv1 Gothic OTF; 
+            letter-spacing: 2.5px;
+        }
     </style>
     <body>
         <h2 id="title" class="text-center" style="color: white; font-family: GyeonggiBatang; font-size: 18px; margin-top: 60px;">당신에게 어울리는 칵테일은</h2>
@@ -95,7 +106,12 @@
                 <% content.forEach(function(e){ %>
                     <li><%= e %></li>
                 <% }) %>
+                <button type="button" class = "btn" >결과 공유하기</button>
+                <button type="button" class = "btn" onclick="location.href='/';">검사하러 가기</button>
             </ul>
+            
         </div>
+        
     </body>
+    <script src="/javascripts/shareUrl.js"></script>
 </head>

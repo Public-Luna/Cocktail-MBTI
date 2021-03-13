@@ -1,4 +1,5 @@
 
+
 /*$(() => {
     $('.q0').show()
 })
@@ -8,6 +9,7 @@
 function next(ans) {
     var postData=[];
     var num = 0
+    
     try{
         if(ans === 0 || ans === 1){
             if (num < 11) {
@@ -26,10 +28,13 @@ function next(ans) {
         }
     }
     catch{
-        console.log("error");
-    }
-    else{
-        return 'error';
+        if(ans >1 && ans <0)
+        {
+            console.log("0,1 이외의 숫자");
+        }
+        else if(isNaN(ans)){
+            console.log("문자");
+        }
     }
 
 // error 처리를 try catch-> 

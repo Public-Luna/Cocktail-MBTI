@@ -68,6 +68,10 @@ body {
   height: 500px;
   margin-top: 70px;
 }
+#undefined{
+  max-width: 360px;
+  height: 500px;
+}
 .question {
   display: none;
   max-width: 360px;

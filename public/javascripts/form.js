@@ -31,4 +31,3 @@ function next(ans) {
     }
 }
 
-module.exports = next;

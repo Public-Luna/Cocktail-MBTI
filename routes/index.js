@@ -13,7 +13,17 @@ router.get('/form', function (req, res, next) {
   res.render('form', { question_map })
 })
 router.post('/form',function(req,res,next){
-  const { form } = req.body
+  let form = [];
+
+  if ("form" in req.body) {
+    form = req.body['form'];
+  }else {
+    return res.status(400).json({
+      error_name: "비정상적 접근",
+      error_message: "data undefined"
+    })
+  }
+
   let r = {
     'ISTP': 1, 'INTP': 1,
     'ESFJ': 2, 'ENFJ': 2,
@@ -30,38 +40,36 @@ router.post('/form',function(req,res,next){
     T: 0, F: 0,
     J: 0, P: 0,
   }
+
   form.forEach(function(e, i) {
- 
     try {
-      if(e===1 || e===0){ c[question_map[i].test[e]] ++}
-    
-      else if(e>1||e<0){
-        res.render('404')
-        throw new Error('1,0아닌 다른 숫자');
+      if(e===1 || e===0){ 
+        c[question_map[i].test[e]] ++
+      }
+      else if(e>1 || e<0){
+        throw new Error('1, 0 아닌 다른 숫자');
       }
       else if(isNaN(e)){
-        res.render('404')
         throw new Error('문자가 들어간 오류');
       }
-      else{
-        res.render('404')
-        throw new Error('완전 다른 오류');
-      }  
-      
+      else {
+        throw new Error('알 수 없는 오류');
+      }
     } catch (e) {
       console.log(e.name+" : "+e.message);
-      
+      return res.status(400).json({
+        error_name: e.name,
+        error_message: e.message
+      })
     }
-      
   })
-  
   
   let d = '';
   d += c['E'] > c['I'] ? 'E' : 'I';
   d += c['S'] > c['N'] ? 'S' : 'N';
   d += c['T'] > c['F'] ? 'T' : 'F';
   d += c['J'] > c['P'] ? 'J' : 'P';
-  res.json({redirect: r[d]});
+  return res.json({redirect: r[d]});
 })
 
 // report/:id
@@ -77,10 +85,8 @@ router.get('/report/:id', function (req, res, next) {
   if (data != {}){
     res.render('report', data);
   }else {
- 
     res.redirect('/404')
   }
-  
 })
 //error
 router.get('/404', function (req, res, next) {

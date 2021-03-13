@@ -50,7 +50,6 @@ body {
   height: 500px;
 }
 .question {
-  display: none;
   max-width: 360px;
 }
 .result {
@@ -60,9 +59,34 @@ body {
   max-width: 360px;
   margin-top: 20%;
 }
-.prog {
+.prog{
   background-color: #ffffff;
+  height: 2px;
+  max-width: 60%;
+  margin: 0 auto;
 }
-.progs {
+.progs{
   background-color: #d09adb;
+  height: 100%;
+}
+.button {
+  width:80%;
+  height: 50px;
+  border: 3px solid #d09adb;
+  border-radius: 0;
+  background-color: #a52a2a00;
+  color: #ffffff;
+  box-shadow:  0px 0px 3px #d09adb inset, 0px 0px 3px #d09adb;
+  font-family:NEXON Lv1 Gothic OTF; 
+  letter-spacing: 2.5px;
+  font-size: 15px;
+}
+#title{
+  margin-top: -50px;
+}
+#rep{
+  max-width: 360px;
+}
+li{
+  margin-bottom: 13px;
 }

@@ -9,12 +9,12 @@
             <span style="color: white;">M</span><span style="color: #ce85e4;">C</span><span style="color:white;">TI</span>
         </header>
     </ariticle>
-    <article class="question container text-center">
-        <div class="prog mt-5">
+    <article class="question container text-center" style="padding-bottom: 30px;">
+        <div class="prog mt-3">
             <div class="progs" style="width: calc(100/12*1%);"></div>
         </div>
         <% question_map.forEach(function(e, i) { %>
-            <div class="container text-center q<%=i%>" style="margin-top: 5em; display: none;">
+            <div class="container text-center q<%=i%>" style="margin-top: 3em; display: none;">
                 <h2 class="text-center mb-2" style="color: white; font-family: GyeonggiBatang; font-size: 35px;"><%= e.title %></h2>
                 <p class="text-center mt-3 mb-5" style="color: white; font-family: GyeonggiBatang; font-size: 23px;"><%- e.content %></p>
                 <button onclick="next(0)" class="ansbutton btn-primary mt-5" style="font-size: 13px;"><%- e.A %></button>

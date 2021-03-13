@@ -1,6 +1,6 @@
 const shareData = {
-    title: 'Cocktail-MBTI',
-    text: '당신의 MBTI는?',
+    title: 'MBTI별 칵테일 추천',
+    text: '당신에게 어울리는 칵테일은? 지금 확인해보세요!',
     url: window.location.href,
     }
 

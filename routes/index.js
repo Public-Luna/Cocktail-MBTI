@@ -31,8 +31,31 @@ router.post('/form',function(req,res,next){
     J: 0, P: 0,
   }
   form.forEach(function(e, i) {
-    c[question_map[i].test[e]] ++
+ 
+    try {
+      if(e===1 || e===0){ c[question_map[i].test[e]] ++}
+    
+      else if(e>1||e<0){
+        res.render('404')
+        throw new Error('1,0아닌 다른 숫자');
+      }
+      else if(isNaN(e)){
+        res.render('404')
+        throw new Error('문자가 들어간 오류');
+      }
+      else{
+        res.render('404')
+        throw new Error('완전 다른 오류');
+      }  
+      
+    } catch (e) {
+      console.log(e.name+" : "+e.message);
+      
+    }
+      
   })
+  
+  
   let d = '';
   d += c['E'] > c['I'] ? 'E' : 'I';
   d += c['S'] > c['N'] ? 'S' : 'N';
@@ -54,7 +77,7 @@ router.get('/report/:id', function (req, res, next) {
   if (data != {}){
     res.render('report', data);
   }else {
-    // 404 해주셈
+ 
     res.redirect('/404')
   }
   

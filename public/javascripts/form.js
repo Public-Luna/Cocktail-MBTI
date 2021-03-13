@@ -5,7 +5,6 @@ $(() => {
     $('.q0').show()
 })
 
-
 function next(ans) {
     if (num < 11) {
         postData.push(ans);
@@ -31,3 +30,4 @@ function next(ans) {
         });
     }
 }
+

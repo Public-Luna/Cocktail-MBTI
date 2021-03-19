@@ -96,6 +96,24 @@ body {
 #rep{
   max-width: 360px;
 }
+#req2{
+  margin-top: 30px ;
+
+}
 li{
   margin-bottom: 13px;
+}
+#main {
+  max-width: 360px;
+  display: flex;
+  align-items: center;
+}
+
+#main_div {
+   flex:10%;
+   margin-left: 40px;
+}
+.stick {
+  border-left: 1px solid white;
+  height: 48px;
 }

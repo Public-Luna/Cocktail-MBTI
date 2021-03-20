@@ -20,7 +20,7 @@ const report = {
     relationgood:'피치크러쉬'
   },
   2: {
-    title : '어디에나 잘 섞이는',
+    title : '어디서나 사랑받는',
     cocktail : '피치크러쉬',
     cocktail_img : 'peachCrush.png',
     content: [

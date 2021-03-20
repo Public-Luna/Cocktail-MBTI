@@ -111,9 +111,14 @@ li{
 
 #main_div {
    flex:10%;
-   margin-left: -35px;
+   margin-left: -40px;
 }
 .stick {
   border-left: 1px solid white;
-  height: 30px;
+  height: 43px;
+  margin-left: -34px;
+}
+
+.w0_5{
+  transform: scaleX(0.5);
 }

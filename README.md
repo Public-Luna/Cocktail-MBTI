@@ -20,12 +20,17 @@ MBTI - based cocktail recommendation service
 - NodeJS/Express
 
 ## Execution Screen
-.
+![image](https://user-images.githubusercontent.com/46837070/111961053-dea6d300-8b33-11eb-9ab9-a436667608ab.png)
+
+
 ### Demo Video Link (웹페이지 작성) 
-.
+[**demo link**](https://www.cocktail-mbti.com)
 
 ## How to run
-
+```bash
+npm installl
+npm start
+```
 
 ## Copyright and License
 [**GNU General Public License v3.0**](https://github.com/Public-Luna/Cocktail-MBTI)

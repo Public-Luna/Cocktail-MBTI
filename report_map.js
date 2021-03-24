@@ -16,8 +16,10 @@ const report = {
     ],
     opposite_img:'kahluaMilk.png',
     opposite:'깔루아밀크',
+    opposite_url:'report/3',
     relationgood_img:'peachCrush.png',
-    relationgood:'피치크러쉬'
+    relationgood:'피치크러쉬',
+    relationgood_url:'report/2'
   },
   2: {
     title : '어디서나 사랑받는',
@@ -36,8 +38,10 @@ const report = {
     ],
     opposite_img:'faust.png',
     opposite:'파우스트',
+    opposite_url:'report/5',
     relationgood_img:'cosmopolitan.png',
-    relationgood:'코스모폴리탄'
+    relationgood:'코스모폴리탄',
+    relationgood_url:'report/1'
   },
   3: {
     title : '어디에나 잘 섞이는',
@@ -54,8 +58,10 @@ const report = {
     ],
     opposite_img:'cosmopolitan.png',
     opposite:'코스모폴리탄',
+    opposite_url:'report/1',
     relationgood_img:'b-52.png',
-    relationgood:'B-52'
+    relationgood:'B-52',
+    relationgood_url:'report/8'
   },
   4: {
     title : '시원한 여름바다 같은',
@@ -72,8 +78,10 @@ const report = {
     ],
     opposite_img:'jackCoke.png',
     opposite:'잭콕',
+    opposite_url:'report/6',
     relationgood_img:'faust.png',
-    relationgood:'파우스트'
+    relationgood:'파우스트',
+    relationgood_url:'report/5'
   },
   5: {
     title : '어둑보라빛 하늘같은',
@@ -90,8 +98,10 @@ const report = {
     ],
     opposite_img:'peachCrush.png',
     opposite:'피치크러쉬',
+    opposite_url:'report/2',
     relationgood_img:'mojito.png',
-    relationgood:'모히또'
+    relationgood:'모히또',
+    relationgood_url:'report/4'
   },
   6: {
     title : '국민 칵테일',
@@ -110,8 +120,10 @@ const report = {
     ],
     opposite_img:'mojito.png',
     opposite:'모히또',
+    opposite_url:'report/4',
     relationgood_img:'pinkLady.png',
-    relationgood:'핑크레이디'
+    relationgood:'핑크레이디',
+    relationgood_url:'report/7'
   },
   7: {
     title : '독을 품은 양귀비같은',
@@ -128,8 +140,10 @@ const report = {
     ],
     opposite_img:'b-52.png',
     opposite:'B-52',
+    opposite_url:'report/8',
     relationgood_img:'jackCoke.png',
-    relationgood:'잭콕'
+    relationgood:'잭콕',
+    relationgood_url:'report/6'
   },
   8: {
     title : '불타오르는 화염같은',
@@ -147,8 +161,10 @@ const report = {
     ],
     opposite_img:'pinkLady.png',
     opposite:'핑크레이디',
+    opposite_url:'report/7',
     relationgood_img:'kahluaMilk.png',
-    relationgood:'깔루아밀크'
+    relationgood:'깔루아밀크',
+    relationgood_url:'report/3'
   }
 }
 module.exports = report;

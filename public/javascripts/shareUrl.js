@@ -20,13 +20,13 @@ const shareData = {
         else if(agent.indexOf('firefox')>-1){ alert("파이어폭스"); }
         else if(agent.indexOf('opera')>-1){ alert("오페라"); }*/
 
-        /*const tempElem = document.createElement('textarea');
+        const tempElem = document.createElement('textarea');
         tempElem.value = window.location.href;  
         document.body.appendChild(tempElem);
       
         tempElem.select();
         document.execCommand("copy");
         document.body.removeChild(tempElem);
-        alert('링크가 복사되었습니다!');*/
+        alert('링크가 복사되었습니다!');
     }
     });
